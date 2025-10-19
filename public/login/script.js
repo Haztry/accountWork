@@ -275,7 +275,7 @@ class MaterialLoginForm {
 
     // Simulate redirect with Material timing
     setTimeout(() => {
-      console.log("Redirecting to dashboard...");
+      console.log("Redirecting to Main...");
       window.location.href = "/public";
     }, 2500);
   }
