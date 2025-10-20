@@ -1,4 +1,5 @@
 import express from "express";
+import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
@@ -6,6 +7,7 @@ import bodyParser from "body-parser";
 import authRoutes from "./routes/authRoutes.js";
 import { protectRoute } from "./middlewares/authMiddleware.js";
 
+dotenv.config(); //This loads variables from your .env file
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
