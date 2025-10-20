@@ -11,11 +11,13 @@ const USER = {
 
 // POST /api/login
 router.post("/login", (req, res) => {
-  console.log("Received body:", req.body); // ✅ debug
+  console.log("Received body:", req.body); // debug, aka show in console
   const { email, password } = req.body;
 
   if (email === USER.email && password === USER.password) {
-    const token = jwt.sign({ email }, "my_secret_key", { expiresIn: "1h" });
+    const token = jwt.sign({ email }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
     res.json({ message: "Login successful", token });
   } else {
     res.status(401).json({ message: "Invalid email or password" });

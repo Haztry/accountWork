@@ -193,7 +193,7 @@ class MaterialLoginForm {
     const emailValue = this.emailInput.value.trim();
     const passwordValue = this.passwordInput.value.trim();
 
-    //In this try i guess we are going to implement the login redirection and authentication
+    //In this try i guess we are going to implement the login redirection and authentication. //We up there, gang, we did it lets git it
     try {
       // Send login request to backend
       const response = await fetch("/api/login", {
@@ -207,13 +207,14 @@ class MaterialLoginForm {
 
       const data = await response.json();
 
-      if (!response.ok) {
-        this.showError("password", data.message || "Login failed");
-        return;
+      if (response.ok) {
+        // Save token in localStorage
+        localStorage.setItem("token", data.token);
+        // Redirect to protected page
+        window.location.href = "/home";
+      } else {
+        alert(data.message);
       }
-
-      // ✅ Success: you can store the token and redirect
-      localStorage.setItem("token", data.token);
       this.showMaterialSuccess();
       //   window.location.href = "/public";
     } catch (error) {
