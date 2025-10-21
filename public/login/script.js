@@ -205,18 +205,34 @@ class MaterialLoginForm {
         }),
       });
 
+      console.log("Login request sent");
       const data = await response.json();
 
       if (response.ok) {
-        // Save token in localStorage
+        console.log("Login successful:", data);
+
+        // Save token
         localStorage.setItem("token", data.token);
-        // Redirect to protected page
-        window.location.href = "/home";
+
+        // Check token validity via /api/verify
+        const verifyResponse = await fetch("/api/verify", {
+          headers: { Authorization: `Bearer ${data.token}` },
+        });
+
+        if (verifyResponse.ok) {
+          console.log("Token valid — redirecting to home");
+          window.location.href = "/home";
+        } else {
+          console.warn("Token invalid or expired");
+          alert("Session expired or invalid. Please log in again.");
+          localStorage.removeItem("token");
+        }
       } else {
+        console.warn("Login failed:", data.message);
         alert(data.message);
       }
+
       this.showMaterialSuccess();
-      //   window.location.href = "/public";
     } catch (error) {
       console.error("Login error:", error);
       this.showError("password", "Server error. Please try again.");

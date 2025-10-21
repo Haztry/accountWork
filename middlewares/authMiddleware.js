@@ -2,16 +2,22 @@
 import jwt from "jsonwebtoken";
 
 export const protectRoute = (req, res, next) => {
+  // console.log(req);
+  // console.log(req);
+  // console.log(next);
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1]; // Bearer TOKEN
-
-  if (!token) return res.redirect("/"); // Not logged in → back to login
-
+  // console.log(token); // so it comes here and it's undefined. LOL // Omar was here .
+  if (!token) {
+    console.log("No token found");
+    return res.status(401).json({ message: "Unauthorized: No token provided" });
+  }
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
     next();
   } catch (err) {
-    return res.redirect("/"); // Invalid token → back to login
+    console.log("Invalid token:", err.message);
+    res.status(403).json({ message: "Forbidden: Invalid token" }); // Invalid token → back to login
   }
 };
