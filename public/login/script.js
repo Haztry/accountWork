@@ -1,4 +1,29 @@
 // Material Design Login Form JavaScript
+
+//Check if user already has a valid token
+//No takesis backsis sowi
+const existingToken = localStorage.getItem("token");
+
+if (existingToken) {
+  console.log("Existing token found, verifying...");
+  fetch("/api/verify", {
+    headers: { Authorization: `Bearer ${existingToken}` },
+  })
+    .then((res) => {
+      if (res.ok) {
+        console.log("User already authenticated — redirecting to /home");
+        window.location.href = "/home";
+      } else {
+        console.warn("Stored token invalid, clearing...");
+        localStorage.removeItem("token");
+      }
+    })
+    .catch((err) => {
+      console.error("Error verifying token:", err);
+      localStorage.removeItem("token");
+    });
+}
+
 class MaterialLoginForm {
   constructor() {
     this.form = document.getElementById("loginForm");
@@ -193,6 +218,8 @@ class MaterialLoginForm {
     const emailValue = this.emailInput.value.trim();
     const passwordValue = this.passwordInput.value.trim();
 
+    console.log("what up bruh");
+
     //In this try i guess we are going to implement the login redirection and authentication. //We up there, gang, we did it lets git it
     try {
       // Send login request to backend
@@ -214,14 +241,23 @@ class MaterialLoginForm {
         // Save token
         localStorage.setItem("token", data.token);
 
-        // Check token validity via /api/verify
+        // ✅ Check token validity via /api/verify
+        console.log("Checking token validity...");
+        console.log("Token being sent:", data.token);
+
         const verifyResponse = await fetch("/api/verify", {
-          headers: { Authorization: `Bearer ${data.token}` },
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${data.token}`,
+          },
         });
 
         if (verifyResponse.ok) {
           console.log("Token valid — redirecting to home");
-          window.location.href = "/home";
+          this.showMaterialSuccess();
+          setTimeout(() => {
+            window.location.href = "/home";
+          }, 2000);
         } else {
           console.warn("Token invalid or expired");
           alert("Session expired or invalid. Please log in again.");
@@ -231,8 +267,6 @@ class MaterialLoginForm {
         console.warn("Login failed:", data.message);
         alert(data.message);
       }
-
-      this.showMaterialSuccess();
     } catch (error) {
       console.error("Login error:", error);
       this.showError("password", "Server error. Please try again.");

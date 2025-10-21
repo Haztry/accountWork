@@ -10,8 +10,9 @@ const USER = {
   password: "franco123",
 };
 
-// ✅ Verify token route
+// Verify token route
 router.get("/verify", protectRoute, (req, res) => {
+  console.log("hey im in verify");
   res.json({ valid: true, user: req.user });
 });
 

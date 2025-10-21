@@ -7,7 +7,7 @@ import bodyParser from "body-parser";
 import authRoutes from "./routes/authRoutes.js";
 import { protectRoute } from "./middlewares/authMiddleware.js";
 
-dotenv.config(); //This loads variables from your .env file
+dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -18,23 +18,38 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 
-// Serve login page
+// 1️⃣ Serve static files (CSS, JS, images)
+app.use(express.static(path.join(__dirname, "public")));
+
+// 2️⃣ Public route: login page
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "login", "index.html"));
 });
 
-// Serve home page after login → protected
-app.get("/home", protectRoute, (req, res) => {
+// 3️⃣ Protected route: home
+app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "home", "index.html"));
 });
 
-// Serve static files (JS, CSS, modules)
-app.use(express.static(path.join(__dirname, "public")));
+// 4️⃣ Protected wildcard: all modules
+// Protect all pages inside /modules
+// Matches any path under /modules
+app.get("/modules/{*splat}", protectRoute, (req, res) => {
+  const requestedPage = req.params.splat; // e.g., "dashboard/index.html"
+  const filePath = path.join(__dirname, "public/modules", requestedPage);
 
-// API routes
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      console.warn("File not found:", filePath);
+      res.status(404).send("Page not found");
+    }
+  });
+});
+
+//  API routes
 app.use("/api", authRoutes);
 
-// Catch-all → redirect to login
+// 6 Catch-all → redirect to login
 app.use((req, res) => {
   res
     .status(404)
