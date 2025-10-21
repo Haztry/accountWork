@@ -26,11 +26,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "login", "index.html"));
 });
 
-// 3️⃣ Protected route: home
-app.get("/home", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "home", "index.html"));
-});
-
 // 4️⃣ Protected wildcard: all modules
 // Protect all pages inside /modules
 // Matches any path under /modules
@@ -46,6 +41,10 @@ app.get("/modules/{*splat}", protectRoute, (req, res) => {
   });
 });
 
+// 3️⃣ Protected route: home
+app.get("/home", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "home", "index.html"));
+});
 //  API routes
 app.use("/api", authRoutes);
 
