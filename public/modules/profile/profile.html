@@ -11,25 +11,88 @@
   />
     <title>Profile</title>
 </head>
-<body>
+<body class="bg-light">
+   
     <div id="navbar-container"></div>
 
     <main>
-        <div class="mt-4">
-            <h1 class="mb-4">Profile</h1>
-
-            <div class="row">
-                <div class="col-md-6">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                    <h5 class="card-title">Sales Overview</h5>
-                    <p class="card-text">Here’s a quick summary of your recent activity.</p>
-                    <button class="btn btn-primary">View details</button>
+       <div class="d-flex justify-content-center align-items-center min-vh-100">
+        
+        <div class="profile-container">
+            <form>
+                <div class="d-flex justify-content-center mb-4">
+                    <div class="avatar-container">
+                        <img src="https://rickandmortyapi.com/api/character/avatar/449.jpeg" alt="Profile Avatar" class="avatar-image"> 
+                        <span class="edit-icon-btn">
+                            &#9998; 
+                        </span>
                     </div>
                 </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName" value="Gaby">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" value="de Franco">
+                    </div>
                 </div>
-            </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" value="gabyvaz@dayrep.com">
+                </div>
+
+                <div class="mb-3">
+                    <label for="contactNumber" class="form-label">Contacts Number</label>
+                    <input type="tel" class="form-control" id="contactNumber" value="646-161-09-44">
+                </div>
+
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" value="1368 Hayhurst Lane.">
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" id="city" value="Mcallen">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="state" class="form-label">State</label>
+                        <input type="text" class="form-control" id="state" value="New York">
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <label for="zipCode" class="form-label">Zip code</label>
+                        <input type="text" class="form-control" id="zipCode" value="11357">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" class="form-control" id="country" value="United States">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" value="********">
+                        <span class="input-group-text password-toggle" id="password-toggle-btn">
+                            &#128065; 
+                        </span>
+                    </div>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg">Save</button>
+                </div>
+            </form>
         </div>
+    </div>
     </main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

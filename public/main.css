@@ -343,3 +343,169 @@ main p{
   }
 
 }
+
+ /* Custom CSS to style and center the form container */
+        .profile-container {
+            max-width: 600px; /* Set a max width for the form */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Subtle shadow for the container */
+            background-color: #ffffff;
+        }
+
+        /* Styling for the circular avatar */
+        .avatar-container {
+            width: 120px;
+            height: 120px;
+            background: #e6f0ff; /* Light blue background for the circle */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 20px;
+            overflow: hidden; /* To keep the image inside the circle */
+        }
+
+        .avatar-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Style for the edit button on the avatar */
+        .edit-icon-btn {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0d6efd; /* Bootstrap primary color */
+            color: white;
+            border: 2px solid white;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        /* Adjust input fields for better alignment */
+        .form-control {
+            height: 45px;
+        }
+
+        /* Basic styling for the password reveal eye (needs a proper icon library like FontAwesome for the actual eye icon) */
+        .password-toggle {
+            cursor: pointer;
+        }
+
+
+        
+        /* Styling my dashboard */
+        
+        .status-badge {
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.85rem;
+    }
+    
+    .status-open {
+        background-color: #e5f7ea; /* Light Green */
+        color: #38c172; /* Green */
+    }
+
+    .status-closed {
+        background-color: #f7e6e5; /* Light Red */
+        color: #e3342f; /* Red */
+    }
+
+    /* Styling for Priority Badges */
+    .priority-badge {
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.85rem;
+    }
+
+    .priority-low {
+        background-color: #e6f7ff; /* Light Blue */
+        color: #1e88e5; /* Blue */
+    }
+    
+    .priority-medium {
+        background-color: #fffbe6; /* Light Yellow */
+        color: #ffc107; /* Yellow */
+    }
+
+    .priority-high {
+        background-color: #ffedf0; /* Light Pink/Red */
+        color: #dc3545; /* Red */
+    }
+    
+    /* Custom styling for the Table Header (th) for a cleaner look */
+    .table-custom thead th {
+        border-bottom: none;
+        color: #6c757d; /* Gray color for text */
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+    
+    /* Custom styling for table body cells (td) */
+    .table-custom tbody tr {
+        vertical-align: middle;
+        border-bottom: 1px solid #dee2e6; /* Light separator line */
+    }
+
+    /* Remove the last row's bottom border for the clean look in the image */
+    .table-custom tbody tr:last-child {
+        border-bottom: none;
+    }
+    
+    /* Style for the three-dot menu button */
+    .btn-action {
+        color: #adb5bd; /* Light gray for the dots */
+    }
+
+    /* Style for the avatar images in the table */
+    .table-avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    /* Ensure dropdown menu is aligned correctly and matches the image's design */
+    .dropdown-menu {
+        border: none;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        border-radius: 8px;
+        min-width: 100px; /* Small width */
+    }
+    
+    .dropdown-item {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    /* Styling for the card icons */
+    .card-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: white;
+    }
+
+    /* Card-specific colors */
+    .card-total .card-icon { background-color: #556ee6; /* Blue */ }
+    .card-pending .card-icon { background-color: #f1b44c; /* Orange */ }
+    .card-closed .card-icon { background-color: #34c38f; /* Green */ }
+    .card-deleted .card-icon { background-color: #f46a6a; /* Red */ }
+    
