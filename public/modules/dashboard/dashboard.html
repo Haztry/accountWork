@@ -91,7 +91,109 @@
                         <h4 class="mb-0 fw-bold">Search Engine | Payments</h4>
                     </div>
                     <div class="col-6 text-end">
-                        <button type="button" class="btn btn-success">Create Payment <i class="fas fa-plus"></i></button>
+                         <a type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createPayment">Create Payment <i class="fas fa-plus"></i></a>
+
+                                        <!-- Modal -->
+                                            <div class="modal fade" id="createPayment" tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Create Payment</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <!-- Here we are going to put a form to add a payment please -->
+                                                            <form>
+
+                                                                <div class="mb-3 text-start">
+                                                                    <label for="selectCountry" class="form-label">Client <span class="text-danger">*</span></label>
+                                                                    <select id="selectCountry" class="form-select" required>
+                                                                        <option value="" selected disabled>Please Select...</option>
+                                                                        <option value="jose">Jose D.</option>
+                                                                        <option value="brown">E. Brown</option>
+                                                                        <option value="gerora">Gerora</option>
+                                                                        <option value="lian">Karen Lian</option>
+                                                                        <option value="diaz">Mark Diaz</option>
+                                                                        <option value="jose">Jose D.</option>
+                                                                        <option value="brown">E. Brown</option>
+                                                                        <option value="gerora">Gerora</option>
+                                                                        <option value="lian">Karen Lian</option>
+                                                                        <option value="diaz">Mark Diaz</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="mb-3 text-start">
+                                                                    <label for="selectCountry" class="form-label">Land <span class="text-danger">*</span></label>
+                                                                    <select id="selectCountry" class="form-select" required>
+                                                                        <option value="" selected disabled>Please Select...</option>
+                                                                        <option value="jose">Lote 5-A Mz2</option>
+                                                                        <option value="brown">Lote 1-C Mz4</option>
+                                                                    </select>
+                                                                </div>
+
+                                                                <div class="mb-3 text-start">
+                                                                    <label for="inputEmail" class="form-label">Amount <span class="text-danger">*</span></label>
+                                                                    <input type="number" class="form-control" id="inputEmail" placeholder="$$$" required>
+                                                                </div>
+
+                                                                <div class="mb-3 text-start">
+                                                                    <label for="selectCountry" class="form-label">Send Receipt? <span class="text-danger">*</span></label>
+                                                                    <select id="selectCountry" class="form-select" required>
+                                                                        <option value="" selected disabled>Please Select...</option>
+                                                                        <option value="jose">Yes</option>
+                                                                        <option value="brown">No</option>
+                                                                    </select>
+                                                                </div>
+                                                                
+                                                                <!-- <div class="row">
+                                                                    <div class="col-md-6 mb-3 text-start">
+                                                                        <label for="inputFullName" class="form-label">Full name <span class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control" id="inputFullName" required>
+                                                                    </div>
+                                                                    <div class="col-md-6 mb-3 text-start">
+                                                                        <label for="inputStreetAddress" class="form-label">Street address <span class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control" id="inputStreetAddress" required>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-6 mb-3 text-start">
+                                                                        <label for="inputApt" class="form-label">Apt / Suite / Other <span class="text-muted">(optional)</span></label>
+                                                                        <input type="text" class="form-control" id="inputApt">
+                                                                    </div>
+                                                                    <div class="col-md-6 mb-3 text-start">
+                                                                        <label for="inputZipCode" class="form-label">Zip code <span class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control" id="inputZipCode" required>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-6 mb-3 text-start">
+                                                                        <label for="inputCity" class="form-label">City <span class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control" id="inputCity" required>
+                                                                    </div>
+                                                                    <div class="col-md-6 mb-3 text-start">
+                                                                        <label for="selectState" class="form-label">State <span class="text-danger">*</span></label>
+                                                                        <select id="selectState" class="form-select" required>
+                                                                            <option selected>Select state</option>
+                                                                            <option value="CA">California</option>
+                                                                            <option value="TX">Texas</option>
+                                                                            </select>
+                                                                    </div>
+                                                                </div> -->
+                                                                
+                                                                <div class="d-grid">
+                                                                    <button type="submit" class="btn btn-dark btn-lg mt-3">Continue to payment</button>
+                                                                </div>
+                                                            </form>
+
+                                                        </div>
+                                                        <!-- <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        </div> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                        <!-- <button type="button" class="btn btn-success">Create Payment <i class="fas fa-plus"></i></button> -->
                     </div>
                 </div>
 
