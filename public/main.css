@@ -477,6 +477,11 @@ main p{
         border-radius: 50%;
         object-fit: cover;
     }
+    .table-avatar-land {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+    }
     
     /* Ensure dropdown menu is aligned correctly and matches the image's design */
     .dropdown-menu {

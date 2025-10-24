@@ -48,6 +48,8 @@ app.get("/home", (req, res) => {
 //  API routes
 app.use("/api", authRoutes);
 
+app.use("/receipt", express.static(path.join(__dirname, "receipt")));
+
 // 6 Catch-all → redirect to login
 app.use((req, res) => {
   res

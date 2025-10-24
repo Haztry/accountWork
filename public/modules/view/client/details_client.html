@@ -3,9 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <!-- CDN for fontawesome.. Still have to download it to not get a call everytime -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="/app.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <title>Details of {$client}</title>
 </head>
-<body>
-    
+<body class="bg-light">
+    <style>
+        /* Minimal Custom CSS to match design details */
+        .profile-container {
+            max-width: 850px; /* Adjust width to match the image scale */
+            margin: auto;
+        }
+        /* Custom card shadow to match the elevation in the image */
+        .custom-card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        /* User Header Card Styling */
+        .user-avatar img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        .user-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .user-details {
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+
+        /* Info Grid Styling */
+        .info-label {
+            color: #6c757d;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+        .info-value {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #343a40;
+            margin-bottom: 15px; /* Space between rows in the grid */
+        }
+        /* Section Header */
+        .section-title {
+            color: #28a745; /* Green color for the title */
+            font-weight: 600;
+        }
+        /* Custom orange Edit button */
+        .btn-custom-edit {
+            background-color: #ff9800; /* Orange color */
+            border-color: #ff9800;
+            color: #fff;
+            padding: 5px 15px;
+            font-weight: 500;
+        }
+        .btn-custom-edit:hover {
+            background-color: #e68a00;
+            border-color: #e68a00;
+            color: #fff;
+        }
+    </style>
+    <div id="navbar-container"></div>
+    <main>
+
+        <!-- everything inside is going to be displayed dynamically by our DB -->
+         
+
+        <div class="">
+            <div class="card p-4 mb-3 custom-card">
+                <div class="d-flex align-items-center">
+                    <div class="user-avatar">
+                        <img src="https://rickandmortyapi.com/api/character/avatar/472.jpeg" alt="Natashia Khaleira">
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">Florentino Monjaráz Gil</div>
+                        <div class="user-details">Land Payer</div>
+                        <div class="user-details"><i class="fas fa-map-marker-alt"></i> Ensenada, Baja California</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-4 mb-3 custom-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="section-title mb-0">Personal Information</h4>
+                    <a href="details_client.html?id=123" class="btn btn-secondary mb-0">Edit <i class="fas fa-edit"></i></a>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="info-label">First Name</div>
+                        <div class="info-value">Florentino</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-label">Last Name</div>
+                        <div class="info-value">Monjaráz Gil</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-label">Date of Birth</div>
+                        <div class="info-value">12-10-1990</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-label">Email Address</div>
+                        <div class="info-value">floren33monjar@gmail.com</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-label">Phone Number</div>
+                        <div class="info-value">(+62) 821 2554-5846</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-label">User Role</div>
+                        <div class="info-value">Land Payer</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-4 mb-3 custom-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="section-title mb-0">Address</h4>
+                     <a href="details_client.html?id=123" class="btn btn-secondary mb-0">Edit <i class="fas fa-edit"></i></a>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="info-label">Country</div>
+                        <div class="info-value">México</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-label">City</div>
+                        <div class="info-value">Ensenada B.C</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-label">Postal Code</div>
+                        <div class="info-value">ERT 22785</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card p-4 mb-3 custom-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="section-title mb-0">Payment Balance</h4>
+                     <a href="details_client.html?id=123" class="btn btn-secondary mb-0">Export <i class="fas fa-file-export"></i></a>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="info-label">Debt</div>
+                        <div class="info-value">$ 21,879</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-label">Paid</div>
+                        <div class="info-value">$ 2,783</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-label">Payoff</div>
+                        <div class="info-value">$ 19,096</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-label">Lots</div>
+                        <div class="info-value">Lote 5-A Mz1, Lote 1-B Mz2</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
 </body>
 </html>
